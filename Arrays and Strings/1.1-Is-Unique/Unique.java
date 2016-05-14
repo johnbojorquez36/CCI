@@ -19,5 +19,7 @@ class Unique {
 	    System.out.println("The string is unique");
 	else
 	    System.out.println("the string is not unique");
+
+	sc.close();
     }
 }

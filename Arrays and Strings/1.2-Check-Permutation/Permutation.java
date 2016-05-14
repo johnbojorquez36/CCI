@@ -35,7 +35,8 @@ class Permutation {
 	    System.out.println("The strings are permuations of each other");
 	else
 	    System.out.println("The strings are not permutations of each other");
-		
+
+	sc.close();	
     }
 
 }
