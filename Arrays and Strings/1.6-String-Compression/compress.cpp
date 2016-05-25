@@ -4,19 +4,16 @@
 
 std::string compress(std::string str) {
   int count = 0;
-  char lastChar = str[0];
   std::ostringstream compressed;
 
   for (auto it = str.begin(); it != str.end(); ++it) {
-    /* If the current character is different from the last
+    ++count;
+    /* If the next character is different from the last current
        or we've reached the end of the string */
-    if (*it != lastChar || std::next(it) == str.end()) {
-      compressed << lastChar << count;
+    if (std::next(it) == str.end() || *std::next(it) != *it) {
+      compressed << *it << count;
       count = 0;
-    } else {
-      ++count;
     }
-    lastChar = *it;
   }
 
   std::string compstr = compressed.str();
