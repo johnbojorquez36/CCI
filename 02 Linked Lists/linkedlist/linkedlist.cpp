@@ -41,3 +41,7 @@ void LinkedList::destroy(LinkedList::Node* head) {
     if (next) next = next->next;
   }
 }
+
+int LinkedList::length(Node* list) {
+  return list ? 1 + length(list->next) : 0;
+}

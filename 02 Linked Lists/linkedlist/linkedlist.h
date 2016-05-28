@@ -16,4 +16,6 @@ namespace LinkedList {
 
   Node* read(std::istream& in);
 
+  int length(Node* list);
+
 }
