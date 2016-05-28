@@ -1,17 +1,10 @@
+#include "../linkedlist/linkedlist.h"
 #include <iostream>
 #include <sstream>
 
-struct Node {
-  int data;
-  Node* next;
-
-  Node(int data) : data(data),
-		   next(nullptr) {}
-};
-
-Node* kthToLast(Node* head, int k) {
-  Node* lead = head;
-  Node* follow = lead;
+LinkedList::Node* kthToLast(LinkedList::Node* head, int k) {
+  LinkedList::Node* lead = head;
+  LinkedList::Node* follow = lead;
 
   /* Advance leading pointer by k nodes.
      On a side note, here's how I like to think of this:
@@ -29,35 +22,16 @@ Node* kthToLast(Node* head, int k) {
   return follow;
 }
 
-Node* readLinkedList(std::istream& in) {
-  Node* head = nullptr;
-  Node* curr = head;
-  std::string line;
-  getline(in, line);
-  std::stringstream ss(line);
-  int x;
-  while(ss >> x) {
-    Node* n = new Node(x);
-    if (head) {
-      curr->next = n;
-      curr = n;
-    } else {
-      head = curr = n;
-    }
-  }
-
-  return head;
-}
-
 int main() {
   std::cout << "Enter a list of integers:" << std::endl;
-  Node* list = readLinkedList(std::cin);
+  LinkedList::Node* list = LinkedList::read(std::cin);
   std::cout << "Enter k (integer > 0): ";
   int k;
   std::cin >> k;
-  Node* knode = kthToLast(list, k);
+  LinkedList::Node* knode = kthToLast(list, k);
   std::cout << "Kth to last element with k=" << k << ": ";
   if (knode) std::cout << knode->data << std::endl;
   else std::cout << "null" << std::endl;
+  LinkedList::destroy(list);
   return 0;
 }
