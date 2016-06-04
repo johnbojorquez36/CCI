@@ -13,7 +13,7 @@
    we only had one list, we would have to interate through to find the
    oldest dog/cat and remove them from the list. A problem arises when
    we want to adopt an animal of either type. With just a list of cats
-   and a list of dogs, we have no way of knowing whether a dod arrived
+   and a list of dogs, we have no way of knowing whether a dog arrived
    before a cat. This leaves us with some options. We could change the
    two lists to instead store pairs of an animal and the time the animal
    arrived. Each time an animal arrives, increment the current time.
