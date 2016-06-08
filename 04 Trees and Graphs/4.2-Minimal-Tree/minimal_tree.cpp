@@ -11,17 +11,17 @@
 
    What is true about a binary tree with minimal height? It must be 
    balanced. If the tree is balanced, then the root of the binary search
-   tree is the median element. Since the list we are give is already sorted
+   tree is the median element. Since the list we are given is already sorted,
    we can find the median easily in constant time. Now that we have the
    root, we need to construct the left and the right subtrees. These are
    just smaller instances of the same problem! We wish to construct minimal
    binary search trees for the first and the second half of the list which
-   we can easily do using recursion. Recursively we can think about it like
+   we can easily do using recursion. Recursively, we can think about it like
    this:
 
    Suppose we already know how to make a BST of minimal height for the first
    and second half of the list. To make a minimal BST for the whole list,
-   we just joing the BSTs for each half at the median.
+   we just join the BSTs for each half at the median.
 
    The runtime of this algorithm will be O(n).
 */
