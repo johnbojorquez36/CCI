@@ -3,13 +3,12 @@
 bool routeExists(std::shared_ptr<Node>& n, std::shared_ptr<Node>& m) {
   if (n == m) return true; // a route exists
   n->visit();
-  bool route = false;
   for (std::shared_ptr<Node>& v : n->adjacencyList()) {
     if (!v->isVisited()) {
-      route |= routeExists(v, m);
+      if routeExists(v, m) return true;
     }
   }
-  return route;
+  return false;
 }
 
 int main() {

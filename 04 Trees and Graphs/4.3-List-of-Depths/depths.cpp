@@ -21,22 +21,23 @@ typedef std::shared_ptr<Tree::BinaryNode> PBNode;
 /* Iterative solution using BFS */
 std::vector<std::list<PBNode>> depths(PBNode root) {
   /* The frontier will hold the nodes which we plan to visit */
-  std::queue<PBNode> frontier;
+  std::queue<std::pair<PBNode, int>> frontier;
   /* A vector of lists of nodes at each level */
   std::vector<std::list<PBNode>> depthLists;
   
-  frontier.push(root);
+  frontier.push(std::pair<PBNode, int>(root, 0));
   /* Keep track of how many nodes we've visited */
   int count = 1;
   while (!frontier.empty()) {
-    int depth = log2(count++);
+    auto p = frontier.front();
+    PBNode n = p.first;
+    int depth = p.second;
     /* If we haven't been to this depth yet, make a new list */
     if (depth >= depthLists.size()) depthLists.push_back(std::list<PBNode>());
-    PBNode n = frontier.front();
     frontier.pop();
     depthLists[depth].push_back(n);
-    if (n->left) frontier.push(n->left);
-    if (n->right) frontier.push(n->right);
+    if (n->left) frontier.push(std::pair<PBNode, int>(n->left, depth+1));
+    if (n->right) frontier.push(std::pair<PBNode, int>(n->right, depth+1));
   }
 
   return depthLists;
