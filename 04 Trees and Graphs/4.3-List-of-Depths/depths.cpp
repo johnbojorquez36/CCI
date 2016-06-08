@@ -58,7 +58,7 @@ std::vector<std::list<PBNode>> depthsRec(PBNode root) {
 }
 
 int main() {
-  std::cout << "Enter the array representation of a complete binary tree: "
+  std::cout << "Enter the array representation of a binary tree (ex. 1 3 4 null 8): "
 	    << std::endl;
   PBNode root = Tree::read(std::cin);
   std::vector<std::list<PBNode>> depthLists = depths(root);
