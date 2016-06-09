@@ -6,8 +6,9 @@
 namespace Tree {
   struct BinaryNode {
     int val;
-    std::shared_ptr<BinaryNode> left;
-    std::shared_ptr<BinaryNode> right;
+    std::shared_ptr<BinaryNode> parent = nullptr;
+    std::shared_ptr<BinaryNode> left = nullptr;
+    std::shared_ptr<BinaryNode> right = nullptr;
 
     BinaryNode(int val) : val(val) {}
   };

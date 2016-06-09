@@ -20,7 +20,9 @@ namespace Tree {
     if (v[i].compare("null") == 0) return nullptr;
     auto root = std::make_shared<BinaryNode>(std::stoi(v[i]));
     root->left = vectorToTree(v, i*2 + 1);
+    if (root->left) root->left->parent = root;
     root->right = vectorToTree(v, i*2 + 2);
+    if (root->right) root->right->parent = root;
     return root;
   }
 
