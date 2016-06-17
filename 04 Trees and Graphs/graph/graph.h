@@ -12,6 +12,7 @@ class Node {
     
 public:
   Node(std::string id) : id(id) {}
+  std::string getID() { return  id; }
   void visit() { visited = true; }
   bool isVisited() { return visited; }
   void addAdjacentNode(std::shared_ptr<Node>);
@@ -24,7 +25,7 @@ protected:
 
 public:
   virtual void connect(std::string v, std::string w) = 0;
-  std::shared_ptr<Node> lookup(std::string s) { return nodes[s]; }
+  std::shared_ptr<Node>& lookup(std::string s) { return nodes[s]; }
   std::unordered_map<std::string, std::shared_ptr<Node>>::iterator begin();
   std::unordered_map<std::string, std::shared_ptr<Node>>::iterator end(); 
 };
