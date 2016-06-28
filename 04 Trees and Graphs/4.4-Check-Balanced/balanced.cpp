@@ -14,11 +14,13 @@
    balanced. This leaves us with just the work of determining the height
    of the left and right subtrees. If we have to calculate the height of
    the left and right subtrees at each node, this will bring our total
-   runtime to O(n^2). We can probably do better. What if we could calculate
-   the height while we recursively determine if the left and right subtree
-   are balanced? Since the function returns a boolean and not the height,
-   we need to add an extra parameter as a reference to an int. This would
-   bring the runtime down to O(n). Let's try it out.
+   runtime to O(n^2) (according to Gayle, it's O(nlogn), but that's in
+   the best case when the tree is actually balanced. Worst case, it's O(n^2)). 
+   We can probably do better. What if we could calculate the height 
+   while we recursively determine if the left and right subtree are balanced?
+   Since the function returns a boolean and not the height, we need to 
+   add an extra parameter as a reference to an int. This would bring the 
+   runtime down to O(n). Let's try it out.
 */
 
 bool isBalanced(std::shared_ptr<Tree::BinaryNode> root, int& height) {
