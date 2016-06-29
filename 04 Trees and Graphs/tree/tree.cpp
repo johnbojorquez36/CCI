@@ -37,4 +37,13 @@ namespace Tree {
     inorderPrint(tree->right);
   }
 
+  std::shared_ptr<BinaryNode> find(std::shared_ptr<BinaryNode> root, int n) {
+    if (nullptr == root) return root;
+    if (n == root->val) return root;
+    std::shared_ptr<BinaryNode> findLeft = find(root->left, n);
+    std::shared_ptr<BinaryNode> findRight = find(root->right, n);
+    if (findLeft) return findLeft;
+    else return findRight;
+  }
+
 }

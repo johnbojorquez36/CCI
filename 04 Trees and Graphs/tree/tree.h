@@ -15,5 +15,6 @@ namespace Tree {
 
   std::shared_ptr<BinaryNode> read(std::istream&);
   std::shared_ptr<BinaryNode> vectorToTree(const std::vector<std::string>&);
+  std::shared_ptr<BinaryNode> find(std::shared_ptr<BinaryNode>, int);
   void inorderPrint(std::shared_ptr<BinaryNode> tree);
 }
