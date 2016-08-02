@@ -3,4 +3,4 @@ Solutions to Gayle Laakmann McDowell's **C**racking the **C**oding **I**nterview
 
 All solutions to these problems are my own original work.
 
-All source code can be compiled and run. I have included tests for each solution.
+All source code can be compiled and almost all can be run. I have included tests for each solution.
