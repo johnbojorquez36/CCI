@@ -3,20 +3,6 @@
 #include <sstream>
 #include <algorithm>
 
-/* Follow up: What if the integer's we're necessarily distinct?
-   In this case, we would have to do a linear search for the magic index.
-   There is no way to narrow the search space like before. For example,
-   suppose we have the following list:
-   
-   5 5 5 5 5 5
-
-   If we try to split up the search space as before, we will notice that the
-   value at index 2 is greater than the index itself. Before, this would be useful
-   information. We could then be sure that the magic index MUST exist to the left.
-   However, with repeating elements, there is no way, just with this information,
-   to decide whether the magic number is to the left or the right.
-*/
-
 int magicIndex(std::vector<int> nums, int low, int high) {
   if (high < low) {
     return -1;
@@ -29,6 +15,23 @@ int magicIndex(std::vector<int> nums, int low, int high) {
   
 int magicIndex(std::vector<int> nums) {
   return magicIndex(nums, 0, nums.size()-1);
+}
+
+/* Follow up: What if the integer's we're necessarily distinct? */
+int magicIndexRepeat(std::vector<int> nums, int low, int high) {
+  if (high < low) {
+    return -1;
+  }
+  int mid = (high + low) / 2;
+  if (nums[mid] == mid) return mid;
+
+  int magicIndex = magicIndexRepeat(nums, low, nums[mid]);
+  if (magicIndex >= 0) return magicIndex;
+  return magicIndexRepeat(nums, mid+1, high);
+}
+  
+int magicIndexRepeat(std::vector<int> nums) {
+  return magicIndexRepeat(nums, 0, nums.size()-1);
 }
 
 std::vector<int> readVector(std::istream& in) {
