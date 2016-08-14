@@ -30,7 +30,7 @@ int findInListy(Listy L, int target) {
   int high = 1;
 
   /* Determine a reasonable range to look in */
-  while (L.elementAt(high) > 0) {
+  while (L.elementAt(high) >= 0) {
     if (L.elementAt(high) == target) {
       return high;
     } else if (L.elementAt(high) > target) {
@@ -39,7 +39,7 @@ int findInListy(Listy L, int target) {
     low = high;
     high *= 2;
   }
-  /* Binary search for value (note that the range will be at most 2n) */
+  /* Binary search for value (note that the range will be at most n) */
   while (low < high) {
     int mid = (low + high)/2;
     if (L.elementAt(mid) == target) {
