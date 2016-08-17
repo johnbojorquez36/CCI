@@ -59,7 +59,7 @@ Cell findElement(std::vector<std::vector<int>>& matrix, Cell topLeft, Cell botto
       start.col = mid.col + 1;
     } else {
       end.row = mid.row - 1;
-      end.col = end.col - 1;
+      end.col = mid.col - 1;
     }
   }
 
