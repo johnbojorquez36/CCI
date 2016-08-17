@@ -52,7 +52,7 @@ Cell findElement(std::vector<std::vector<int>>& matrix, Cell topLeft, Cell botto
   int dist = std::min(bottomRight.row - topLeft.row, bottomRight.col - topLeft.col);
   Cell end = Cell(start.row + dist, start.col + dist);
 
-  while (topLeft < bottomRight) {
+  while (start < end) {
     Cell mid = average(topLeft, bottomRight);
     if (target > matrix[mid.row][mid.col]) {
       start.row = mid.row + 1;
