@@ -14,7 +14,7 @@ struct Cell {
   }
 
   bool operator<(Cell& c) {
-    return row < c.row && col < c.col;
+    return row <= c.row && col <= c.col;
   }
 };
 
