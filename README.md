@@ -11,4 +11,11 @@ I'm starting to experiment with using Bazel for running unit tests, because I ca
 $ bazel test 01_arrays_and_strings/java/com/lazystring:combined_test
 ```
 
+Alternatively, you can run the tests within that directory:
+
+```sh
+$ cd 01_arrays_and_strings/java/com/lazystring
+$ bazel test :combined_test
+```
+
 By default, Bazel will write all the test output to a file. For quick debugging it's useful to print the test output directly to the console. This can be done by adding `--test_output=all` to the above command.
